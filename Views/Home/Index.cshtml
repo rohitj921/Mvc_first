@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewData["Title"] = "Employee Portal";
+}
+
+<div class="container my-5">
+    <div class="text-center mb-4">
+        <h1 class="display-4 fw-bold text-primary">Welcome to Employee Portal</h1>
+        <p class="lead text-muted">Manage employees efficiently with our smart portal.</p>
+        <a class="btn btn-primary btn-lg shadow-sm" asp-controller="Employees" asp-action="Index">
+            <i class="bi bi-people"></i> View Employees
+        </a>
+    </div>
+
+    <div class="row text-center">
+        <div class="col-md-4">
+            <div class="card shadow-sm border-0">
+                <div class="card-body">
+                    <i class="bi bi-person-plus display-4 text-success"></i>
+                    <h5 class="card-title mt-3">Add Employee</h5>
+                    <p class="card-text">Easily add new employees to the system.</p>
+                    <a asp-controller="Employees" asp-action="Create" class="btn btn-success btn-sm">Add Now</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm border-0">
+                <div class="card-body">
+                    <i class="bi bi-search display-4 text-primary"></i>
+                    <h5 class="card-title mt-3">Search Employees</h5>
+                    <p class="card-text">Search employees with thier names</p>
+                    <a asp-controller="Employees" asp-action="Search" class="btn btn-primary btn-sm">View Now</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm border-0">
+                <div class="card-body">
+                    <i class="bi bi-graph-up display-4 text-warning"></i>
+                    <h5 class="card-title mt-3">Reports</h5>
+                    <p class="card-text">Analyze employee data with reports.</p>
+                    <a asp-controller="Employees" asp-action="Reports" class="btn btn-warning btn-sm">View Reports</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
