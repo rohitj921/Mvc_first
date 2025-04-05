@@ -38,7 +38,7 @@ namespace MVC_First.Controllers
             }
 
             var employee = await _context.Employee
-                .FirstOrDefaultAsync(m => m.id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (employee == null)
             {
                 return NotFound();
@@ -57,7 +57,7 @@ namespace MVC_First.Controllers
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,name,age,dob,city")] Employee employee)
+        public async Task<IActionResult> Create([Bind("Id,Name,Age,Dob,Email,Phone,Gender,City")] Employee employee)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +91,7 @@ namespace MVC_First.Controllers
                 return View(null);
             }
 
-            var employees = await _context.Employee.Where(e => e.name.ToLower().StartsWith(name.ToLower())).ToListAsync();
+            var employees = await _context.Employee.Where(e => e.Name.ToLower().StartsWith(name.ToLower())).ToListAsync();
             if (employees.Count==0)
             {
                 return View(new List<Employee>());
@@ -102,9 +102,9 @@ namespace MVC_First.Controllers
         // POST: Employees/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id,name,age,dob,city")] Employee employee)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Age,Dob,Email,Phone,Gender,City")] Employee employee)
         {
-            if (id != employee.id)
+            if (id != employee.Id)
             {
                 return NotFound();
             }
@@ -118,7 +118,7 @@ namespace MVC_First.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!EmployeeExists(employee.id))
+                    if (!EmployeeExists(employee.Id))
                     {
                         return NotFound();
                     }
@@ -141,7 +141,7 @@ namespace MVC_First.Controllers
             }
 
             var employee = await _context.Employee
-                .FirstOrDefaultAsync(m => m.id == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (employee == null)
             {
                 return NotFound();
@@ -167,7 +167,7 @@ namespace MVC_First.Controllers
 
         private bool EmployeeExists(int id)
         {
-            return _context.Employee.Any(e => e.id == id);
+            return _context.Employee.Any(e => e.Id == id);
         }
 
     }

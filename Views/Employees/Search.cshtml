@@ -18,16 +18,25 @@
             <thead class="table-dark">
                 <tr>
                     <th>
-                        @Html.DisplayNameFor(model => model.name)
+                        @Html.DisplayNameFor(model => model.Name)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.age)
+                        @Html.DisplayNameFor(model => model.Age)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.dob)
+                        @Html.DisplayNameFor(model => model.Dob)
+                    </th>
+                     <th>
+                        @Html.DisplayNameFor(model => model.Email)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.city)
+                        @Html.DisplayNameFor(model => model.Phone)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Gender)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.City)
                     </th>
                     <th></th>
                 </tr>
@@ -36,14 +45,17 @@
                 @foreach (var emp in Model)
                 {
                     <tr>
-                        <td class="col-3">@emp.name</td>
-                        <td class="col-2">@emp.age</td>
-                        <td class="col-2">@emp.dob.ToShortDateString()</td>
-                        <td class ="col-2">@emp.city</td>
-                        <td class="col-3">
-                            <a asp-action="Edit" asp-route-id="@emp.id" class="btn btn-sm btn-primary "><i class="bi bi-pencil-square "></i>Edit</a>
-                            <a asp-action="Details" asp-route-id="@emp.id" class="btn btn-sm btn-info text-white"><i class="bi bi-eye"></i>Details</a>
-                            <a asp-action="Delete" asp-route-id="@emp.id" class="btn btn-sm btn-danger"><i class="bi bi-trash"></i>Delete</a>
+                        <td class="col-2">@emp.Name</td>
+                        <td class="col-1">@emp.Age</td>
+                        <td class="col-1">@emp.Dob.ToShortDateString()</td>
+                        <td class="col-2">@emp.Email</td>
+                        <td class="col-2">@emp.Phone</td>
+                        <td class="col-1">@emp.Gender</td>
+                        <td class ="col-1">@emp.City</td>
+                        <td class="col-2">
+                            <a asp-action="Edit" asp-route-id="@emp.Id" class="btn btn-sm btn-primary "><i class="bi bi-pencil-square "></i>Edit</a>
+                            <a asp-action="Details" asp-route-id="@emp.Id" class="btn btn-sm btn-info text-white"><i class="bi bi-eye"></i>Details</a>
+                            <a asp-action="Delete" asp-route-id="@emp.Id" class="btn btn-sm btn-danger"><i class="bi bi-trash"></i>Delete</a>
                         </td>
                     </tr>
                 }
